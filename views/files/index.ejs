@@ -172,7 +172,7 @@
                                             <i class="fas fa-file-pdf"></i>
                                         </div>
                                         <div>
-                                            <strong>${file.fileName}</strong>
+                                            <strong class="text-body">${file.fileName}</strong>
                                             ${file.invoiceCount > 0 ? `<div class="small text-muted">${file.invoiceCount} فاتورة</div>` : ''}
                                         </div>
                                     </div>
@@ -199,7 +199,7 @@
                                 </td>
                                 <td>
                                     <div class="notes-cell" title="${file.notes || 'لا توجد ملاحظات'}">
-                                        ${file.notes ? (file.notes.length > 30 ? file.notes.substring(0, 30) + '...' : file.notes) : '<span class="text-muted">لا توجد ملاحظات</span>'}
+                                        ${file.notes ? `<span class="text-body">${file.notes.length > 30 ? file.notes.substring(0, 30) + '...' : file.notes}</span>` : '<span class="text-muted">لا توجد ملاحظات</span>'}
                                     </div>
                                 </td>
                                 <td>
@@ -209,9 +209,9 @@
                                 </td>
                                 <td>
                                     <small class="text-muted">
-                                        ${new Date(file.createdAt).toLocaleDateString('ar-SA')}
+                                        <span class="text-body">${new Date(file.createdAt).toLocaleDateString('ar-SA')}</span>
                                         <br>
-                                        ${new Date(file.createdAt).toLocaleTimeString('ar-SA', {hour: '2-digit', minute: '2-digit'})}
+                                        <span class="text-muted">${new Date(file.createdAt).toLocaleTimeString('ar-SA', {hour: '2-digit', minute: '2-digit'})}</span>
                                     </small>
                                 </td>
                                 <td class="text-center">
@@ -325,6 +325,18 @@
     color: var(--text-muted) !important;
 }
 
+[data-theme="dark"] .text-body {
+    color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .badge {
+    color: white !important;
+}
+
+[data-theme="dark"] .badge.bg-info {
+    background: linear-gradient(135deg, #17a2b8 0%, #6f42c1 100%) !important;
+}
+
 [data-theme="dark"] .modal-content {
     background-color: var(--card-bg);
     color: var(--text-primary);
@@ -348,6 +360,15 @@
 
 [data-theme="dark"] .btn-close {
     filter: invert(1);
+}
+
+/* Enhanced text visibility for file names and dates */
+[data-theme="dark"] .file-row strong {
+    color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .file-row .small {
+    color: var(--text-muted) !important;
 }
 </style>
 

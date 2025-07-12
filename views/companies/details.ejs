@@ -211,6 +211,31 @@
             box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.3);
         }
         
+        /* Enhanced dark mode text visibility */
+        [data-theme="dark"] .card-body p {
+            color: var(--text-primary);
+        }
+        
+        [data-theme="dark"] .card-body strong {
+            color: var(--text-primary) !important;
+        }
+        
+        [data-theme="dark"] .text-body {
+            color: var(--text-primary) !important;
+        }
+        
+        [data-theme="dark"] .badge {
+            color: white !important;
+        }
+        
+        [data-theme="dark"] .badge.bg-success {
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%) !important;
+        }
+        
+        [data-theme="dark"] .badge.bg-info {
+            background: linear-gradient(135deg, #17a2b8 0%, #6f42c1 100%) !important;
+        }
+        
         @media (max-width: 768px) {
             .sidebar {
                 position: fixed;
@@ -404,7 +429,7 @@
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <p><strong>اسم الشركة:</strong><br><%= company.name %></p>
+                                        <p><strong class="text-body">اسم الشركة:</strong><br><span class="text-body"><%= company.name %></span></p>
                                         <p><strong>نسبة العمولة:</strong><br>
                                             <span class="badge bg-success fs-6"><%= company.commissionRate %>%</span>
                                         </p>
@@ -413,12 +438,12 @@
                                         <p><strong>تم الإنشاء بواسطة:</strong><br>
                                             <span class="badge bg-info"><%= company.createdBy?.username || 'غير محدد' %></span>
                                         </p>
-                                        <p><strong>تاريخ الإنشاء:</strong><br><%= new Date(company.createdAt).toLocaleDateString('ar-SA') %></p>
+                                        <p><strong class="text-body">تاريخ الإنشاء:</strong><br><span class="text-body"><%= new Date(company.createdAt).toLocaleDateString('ar-SA') %></span></p>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <p><strong>آخر تحديث:</strong><br><%= new Date(company.updatedAt).toLocaleDateString('ar-SA') %></p>
+                                        <p><strong class="text-body">آخر تحديث:</strong><br><span class="text-body"><%= new Date(company.updatedAt).toLocaleDateString('ar-SA') %></span></p>
                                     </div>
                                 </div>
                             </div>

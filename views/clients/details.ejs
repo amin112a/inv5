@@ -369,11 +369,11 @@
         }
         
         [data-theme="dark"] .detail-label {
-            color: var(--text-secondary) !important;
+            color: var(--text-secondary);
         }
         
         [data-theme="dark"] .detail-value {
-            color: var(--text-primary);
+            color: var(--text-primary) !important;
         }
         
         [data-theme="dark"] .contact-link {
@@ -381,7 +381,11 @@
         }
         
         [data-theme="dark"] .contact-link:hover {
-            color: #51cf66;
+            color: #51cf66 !important;
+        }
+        
+        [data-theme="dark"] .contact-link .text-body {
+            color: var(--text-primary) !important;
         }
         
         [data-theme="dark"] .invoice-summary-card {
@@ -390,11 +394,11 @@
         }
         
         [data-theme="dark"] .summary-number {
-            color: var(--text-primary) !important;
+            color: var(--text-primary);
         }
         
         [data-theme="dark"] .summary-label {
-            color: var(--text-secondary);
+            color: var(--text-secondary) !important;
         }
         
         [data-theme="dark"] .invoice-table {
@@ -406,7 +410,7 @@
         }
         
         [data-theme="dark"] .invoice-table td {
-            background-color: var(--table-bg) !important;
+            background-color: var(--table-bg);
             color: var(--text-primary) !important;
             border-color: var(--border-color);
         }
@@ -416,7 +420,7 @@
         }
         
         [data-theme="dark"] .invoice-code {
-            color: var(--text-primary);
+            color: var(--text-primary) !important;
         }
         
         [data-theme="dark"] .empty-state {
@@ -424,11 +428,11 @@
         }
         
         [data-theme="dark"] .empty-state h5 {
-            color: var(--text-secondary) !important;
+            color: var(--text-secondary);
         }
         
         [data-theme="dark"] .empty-state p {
-            color: var(--text-muted) !important;
+            color: var(--text-muted);
         }
         
         [data-theme="dark"] .action-btn:hover {
@@ -640,7 +644,7 @@
                                     <div class="detail-value">
                                         <a href="tel:<%= client.mobileNumber %>" class="contact-link text-decoration-none">
                                             <i class="fas fa-phone text-success me-2"></i>
-                                            <%= client.mobileNumber %>
+                                            <span class="text-body"><%= client.mobileNumber %></span>
                                         </a>
                                     </div>
                                 </div>
@@ -648,14 +652,14 @@
                                 <div class="detail-item">
                                     <div class="detail-label">نسبة العمولة</div>
                                     <div class="detail-value">
-                                        <span class="badge bg-success fs-6 text-white"><%= client.commissionRate %>%</span>
+                                        <span class="badge bg-success fs-6"><%= client.commissionRate %>%</span>
                                     </div>
                                 </div>
 
                                 <div class="detail-item">
                                     <div class="detail-label">تم الإنشاء بواسطة</div>
                                     <div class="detail-value">
-                                        <span class="badge bg-info text-white"><%= client.createdBy?.username || 'غير محدد' %></span>
+                                        <span class="badge bg-info"><%= client.createdBy?.username || 'غير محدد' %></span>
                                     </div>
                                 </div>
 
